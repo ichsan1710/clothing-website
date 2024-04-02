@@ -1,3 +1,4 @@
+import Card from "@/components/Card";
 import Carousel from "@/components/Carousel";
 import Navbar from "@/components/Navbar";
 
@@ -6,6 +7,7 @@ export default function Home() {
     <>
       <Navbar />
       <Carousel />
+      <Card />
     </>
   );
 }
