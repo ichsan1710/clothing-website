@@ -30,7 +30,7 @@ export default function Navbar() {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
               <li>
-                <a>COLLECTIONS</a>
+                <a href="/products">COLLECTIONS</a>
               </li>
               <li>
                 <a>WISHLISTS</a>
@@ -39,11 +39,13 @@ export default function Navbar() {
           </div>
         </div>
         <div className="navbar-center">
-          <Image
-            alt="logo"
-            src={logo}
-            className="h-20 w-20"
-          />
+          <a href="/">
+            <Image
+              alt="logo"
+              src={logo}
+              className="h-20 w-20"
+            />
+          </a>
         </div>
         <div className="navbar-end">
           <button className="btn btn-ghost btn-circle">
