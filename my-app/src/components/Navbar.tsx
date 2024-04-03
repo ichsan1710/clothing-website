@@ -63,7 +63,7 @@ export default function Navbar() {
               />
             </svg>
           </button>
-          <a href="/login">
+          <a href="/register">
             <button className="btn btn-ghost btn-circle">
               <svg
                 className="feather feather-user"
