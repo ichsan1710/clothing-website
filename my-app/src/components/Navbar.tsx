@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Navbar() {
   return (
     <>
-      <div className="navbar mx-auto max-w-screen-lg">
+      <div className="navbar mx-auto max-w-screen-lg sticky top-0 z-10">
         <div className="navbar-start">
           <div className="dropdown">
             <div
@@ -14,7 +14,7 @@ export default function Navbar() {
               className="btn btn-ghost btn-circle">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-7 w-7"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor">
@@ -43,7 +43,7 @@ export default function Navbar() {
             <Image
               alt="logo"
               src={logo}
-              className="h-20 w-20"
+              className="h-32 w-32"
             />
           </a>
         </div>
@@ -51,7 +51,7 @@ export default function Navbar() {
           <button className="btn btn-ghost btn-circle">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-7 w-7"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor">
@@ -68,13 +68,13 @@ export default function Navbar() {
               <svg
                 className="feather feather-user"
                 fill="none"
-                height="24"
+                height="32"
                 stroke="currentColor"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 viewBox="0 0 24 24"
-                width="24"
+                width="32"
                 xmlns="http://www.w3.org/2000/svg">
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                 <circle
