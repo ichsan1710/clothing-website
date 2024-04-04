@@ -1,5 +1,6 @@
 import CarouselHome from "@/components/CarouselHome";
 import DetailInfo from "@/components/DetailInfo";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -72,13 +73,13 @@ export default function Home() {
             />
           </div>
         </div>
-        <a
+        <Link
           href="/products"
           className="mt-9">
           <button className="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
             LEARN MORE
           </button>
-        </a>
+        </Link>
       </div>
     </>
   );

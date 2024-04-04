@@ -1,5 +1,6 @@
 import Card from "@/components/Card";
 import CarouselProduct from "@/components/CarouselProduct";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -14,11 +15,11 @@ export default function Home() {
         <Card />
       </div>
       <div className="flex flex-col justify-center items-center mt-9">
-        <a href="">
+        <Link href="">
           <button className="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
             SEE MORE
           </button>
-        </a>
+        </Link>
       </div>
     </>
   );

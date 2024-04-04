@@ -1,14 +1,16 @@
+import Link from "next/link";
+
 export default function Card() {
   return (
     <>
       <div className="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
         <div className="relative mx-4 mt-4 h-96 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
-          <a href="/products/detail-product">
+          <Link href="/products/detail-product">
             <img
               src="https://www.patta.nl/cdn/shop/files/PATTAXCONVERSE_ECOM_21_02_24-161-1_copy.jpg?v=1710428898&width=1500"
               className="h-full w-full object-cover"
             />
-          </a>
+          </Link>
         </div>
         <div className="p-6">
           <div className="mb-2 flex items-center justify-between">

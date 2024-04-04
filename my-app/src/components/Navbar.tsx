@@ -30,22 +30,22 @@ export default function Navbar() {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
               <li>
-                <a href="/products">COLLECTIONS</a>
+                <Link href="/products">COLLECTIONS</Link>
               </li>
               <li>
-                <a href="/wishlists">WISHLISTS</a>
+                <Link href="/wishlists">WISHLISTS</Link>
               </li>
             </ul>
           </div>
         </div>
         <div className="navbar-center">
-          <a href="/">
+          <Link href="/">
             <Image
               alt="logo"
               src={logo}
               className="h-32 w-32"
             />
-          </a>
+          </Link>
         </div>
         <div className="navbar-end">
           <button className="btn btn-ghost btn-circle">
@@ -63,7 +63,7 @@ export default function Navbar() {
               />
             </svg>
           </button>
-          <a href="/register">
+          <Link href="/register">
             <button className="btn btn-ghost btn-circle">
               <svg
                 className="feather feather-user"
@@ -84,7 +84,7 @@ export default function Navbar() {
                 />
               </svg>
             </button>
-          </a>
+          </Link>
         </div>
       </div>
     </>

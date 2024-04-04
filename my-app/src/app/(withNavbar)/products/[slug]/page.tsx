@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function ProductDetail() {
   return (
     <>
@@ -56,11 +58,11 @@ export default function ProductDetail() {
               </button>
             </div>
           </div>
-          <a href="/products">
+          <Link href="/products">
             <button className="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full mt-12">
               RETURN TO COLLECTIONS
             </button>
-          </a>
+          </Link>
         </div>
       </div>
     </>

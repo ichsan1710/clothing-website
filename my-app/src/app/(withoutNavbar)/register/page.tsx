@@ -7,12 +7,12 @@ export default function Register() {
     <>
       <div className="flex mx-auto h-screen w-full">
         <div className="flex-1 w-full flex flex-col justify-center items-center">
-          <a href="/">
+          <Link href="/">
             <Image
               alt="logo"
               src={logo}
             />
-          </a>
+          </Link>
         </div>
         <div className="flex-1 w-full">
           <div className="mx-12 flex flex-col justify-center items-center h-full">
@@ -57,11 +57,11 @@ export default function Register() {
                 className="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
                 CREATE ACCOUNT
               </button>
-              <a
+              <Link
                 href="/login"
                 className="flex flex-col justify-center items-center mt-4">
                 I HAVE AN ACCOUNT
-              </a>
+              </Link>
             </form>
           </div>
         </div>
