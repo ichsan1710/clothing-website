@@ -16,7 +16,7 @@ export default function Card() {
               Patta x Converse Rain or Shine Pant (Utility Green Heather)
             </p>
             <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-              $99.00
+              $99.99
             </p>
           </div>
           <p className="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">

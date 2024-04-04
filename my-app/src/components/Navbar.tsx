@@ -33,7 +33,7 @@ export default function Navbar() {
                 <a href="/products">COLLECTIONS</a>
               </li>
               <li>
-                <a>WISHLISTS</a>
+                <a href="/wishlists">WISHLISTS</a>
               </li>
             </ul>
           </div>
