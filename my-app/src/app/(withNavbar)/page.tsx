@@ -10,7 +10,7 @@ export default function Home() {
         <h1 className="text-2xl text-gray-900 font-bold md:text-4xl">
           Collections
         </h1>
-        <div className="carousel carousel-center p-4 space-x-4 bg-neutral rounded-box mt-9">
+        <div className="carousel carousel-center p-4 space-x-4 bg-black rounded-box mt-9">
           <div className="carousel-item">
             <img
               src="https://www.patta.nl/cdn/shop/files/PATTAXCONVERSE_ECOM_21_02_24-161-1_copy.jpg?v=1710428898&width=1500"

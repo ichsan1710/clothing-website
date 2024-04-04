@@ -13,6 +13,13 @@ export default function Home() {
         <Card />
         <Card />
       </div>
+      <div className="flex flex-col justify-center items-center mt-9">
+        <a href="">
+          <button className="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+            SEE MORE
+          </button>
+        </a>
+      </div>
     </>
   );
 }

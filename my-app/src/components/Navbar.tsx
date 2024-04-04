@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Navbar() {
   return (
     <>
-      <div className="navbar mx-auto max-w-screen-lg sticky top-0 z-10">
+      <div className="navbar mx-auto max-w-screen-lg sticky top-10 z-10">
         <div className="navbar-start">
           <div className="dropdown">
             <div
