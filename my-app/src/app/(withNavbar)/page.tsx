@@ -65,6 +65,12 @@ export default function Home() {
               className="rounded-box w-auto h-96"
             />
           </div>
+          <div className="carousel-item">
+            <img
+              src="https://www.patta.nl/cdn/shop/files/POC-SS24-2000-325-0220-001_model2.jpg?v=1707740449&width=1500"
+              className="rounded-box w-auto h-96"
+            />
+          </div>
         </div>
         <a
           href="/products"

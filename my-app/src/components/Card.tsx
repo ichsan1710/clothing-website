@@ -3,7 +3,7 @@ export default function Card() {
     <>
       <div className="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
         <div className="relative mx-4 mt-4 h-96 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
-          <a href="/wishlists">
+          <a href="/products/detail-product">
             <img
               src="https://www.patta.nl/cdn/shop/files/PATTAXCONVERSE_ECOM_21_02_24-161-1_copy.jpg?v=1710428898&width=1500"
               className="h-full w-full object-cover"
@@ -16,7 +16,7 @@ export default function Card() {
               Patta x Converse Rain or Shine Pant (Utility Green Heather)
             </p>
             <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-              $95.00
+              $99.00
             </p>
           </div>
           <p className="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
