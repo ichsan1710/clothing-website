@@ -1,6 +1,7 @@
 import Link from "next/link";
 import logo from "../../public/logo.png";
 import Image from "next/image";
+import LogoutButton from "./LogoutButton";
 
 export default function Navbar() {
   return (
@@ -85,6 +86,7 @@ export default function Navbar() {
               </svg>
             </button>
           </Link>
+          <LogoutButton />
         </div>
       </div>
     </>

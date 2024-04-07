@@ -1,8 +1,46 @@
 import Image from "next/image";
 import logo from "../../../../public/logo.png";
 import Link from "next/link";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+import { ClientFlashComponent } from "@/components/ClientFlash";
 
 export default function Login() {
+  async function loginFunction(formData: FormData) {
+    "use server";
+
+    cookies().delete("Authorization");
+
+    const rawFormData = {
+      email: formData.get("email"),
+      password: formData.get("password"),
+    };
+
+    const response = await fetch("http://localhost:3000/api/login", {
+      method: "POST",
+      cache: "no-store",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(rawFormData),
+    });
+
+    if (!response.ok) {
+      const errorMessage = await response.json();
+
+      if (errorMessage.message) {
+        redirect(`/login?error=${errorMessage.message}`);
+      } else {
+        redirect(`/login?error=${errorMessage.error}`);
+      }
+    }
+
+    const responseJson = await response.json();
+
+    cookies().set("Authorization", `Bearer ${responseJson.data.accessToken}`);
+
+    return redirect("/");
+  }
   return (
     <>
       <div className="flex mx-auto h-screen w-full">
@@ -17,7 +55,12 @@ export default function Login() {
         <div className="flex-1 w-full">
           <div className="mx-12 flex flex-col justify-center items-center h-full">
             <h1 className="text-7xl font-bold text-center mb-8">Login</h1>
-            <form className="w-full">
+            <div className="my-5 px-32">
+              <ClientFlashComponent />
+            </div>
+            <form
+              action={loginFunction}
+              className="w-full">
               <div className="relative mb-4">
                 <input
                   type="email"
