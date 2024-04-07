@@ -1,13 +1,18 @@
+import { Product } from "@/types";
 import Link from "next/link";
 
-export default function Card() {
+interface CardProductProps {
+  product: Product;
+}
+
+export default function Card({ product }: CardProductProps) {
   return (
     <>
       <div className="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
         <div className="relative mx-4 mt-4 h-96 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
-          <Link href="/products/detail-product">
+          <Link href={`/products/${product.slug}`}>
             <img
-              src="https://www.patta.nl/cdn/shop/files/PATTAXCONVERSE_ECOM_21_02_24-161-1_copy.jpg?v=1710428898&width=1500"
+              src={product.thumbnail}
               className="h-full w-full object-cover"
             />
           </Link>
@@ -15,19 +20,14 @@ export default function Card() {
         <div className="p-6">
           <div className="mb-2 flex items-center justify-between">
             <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-              Patta x Converse Rain or Shine Pant (Utility Green Heather)
+              {product.name}
             </p>
             <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-              $99.99
+              ${product.price}
             </p>
           </div>
           <p className="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
-            The Patta x Converse Rain or Shine Pants are constructed in 100%
-            Cotton Legacy French Terry fabric. The sweat pants features an
-            elasticated waistband with drawstrings, two side pockets and a back
-            pocket. A standout detail on the Utility Green Heater sweats are the
-            contrast stitching in white. Other details are a Patta x Converse
-            logo on the left side of the pants.
+            {product.description}
           </p>
         </div>
         <div className="p-6 pt-0">

@@ -1,40 +1,113 @@
 import Link from "next/link";
+import { Product } from "@/types";
+import type { Metadata, ResolvingMetadata } from "next";
 
-export default function ProductDetail() {
+type Props = {
+  params: { slug: string };
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const slug = params.slug;
+
+  const product = await fetchData(slug);
+
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: product.data.name,
+    openGraph: {
+      images: ["/some-specific-page-image.jpg", ...previousImages],
+    },
+  };
+}
+
+async function fetchData(slug: string) {
+  const response = await fetch(`http://localhost:3000/api/products/${slug}`);
+
+  const data = await response.json();
+
+  return data;
+}
+
+export default async function ProductDetail({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const product: { data: Product } = await fetchData(params.slug);
+
   return (
     <>
       <div className="flex mx-auto h-screen w-full">
         <div className="flex mx-12 mt-7 flex-1 justify-center">
-          <img
-            src="https://www.patta.nl/cdn/shop/files/PATTAXCONVERSE_ECOM_21_02_24-161-1_copy.jpg?v=1710428898&width=1500"
-            alt="Product Thumbnail"
-            className="rounded-lg shadow-lg"
-          />
+          <div className="relative mx-12 mt-7 flex-1 justify-center">
+            <div className="carousel">
+              <div className="carousel-item w-full">
+                <div
+                  id="slide1"
+                  className="carousel-item relative w-full">
+                  <img
+                    src={product?.data.images[0]}
+                    alt="Product Thumbnail"
+                    className="rounded-lg shadow-lg"
+                  />
+                  <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <Link
+                      href="#slide1"
+                      className="btn btn-circle">
+                      ❮
+                    </Link>
+                    <Link
+                      href="#slide2"
+                      className="btn btn-circle">
+                      ❯
+                    </Link>
+                  </div>
+                </div>
+                <div
+                  id="slide2"
+                  className="carousel-item relative w-full">
+                  <img
+                    src={product?.data.images[1]}
+                    alt="Product Thumbnail"
+                    className="rounded-lg shadow-lg"
+                  />
+                  <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <Link
+                      href="#slide1"
+                      className="btn btn-circle">
+                      ❮
+                    </Link>
+                    <Link
+                      href="#slide2"
+                      className="btn btn-circle">
+                      ❯
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="flex-1 w-full mx-12 mt-24">
-          <div></div>
-          <h1 className="text-3xl font-bold my-4">
-            Patta x Converse Rain or Shine Pant (Utility Green Heather)
-          </h1>
+          <h1 className="text-3xl font-bold my-4">{product?.data.name}</h1>
           <h2 className="text-xl font-semibold">Description</h2>
-          <p className="mt-2">
-            The Patta x Converse Rain or Shine Pants are constructed in 100%
-            Cotton Legacy French Terry fabric. The sweat pants features an
-            elasticated waistband with drawstrings, two side pockets and a back
-            pocket. A standout detail on the Utility Green Heater sweats are the
-            contrast stitching in white. Other details are a Patta x Converse
-            logo on the left side of the pants.
-          </p>
+          <p className="mt-2">{product?.data.description}</p>
 
           <div className="mt-6">
             <h2 className="text-xl font-semibold">Price</h2>
-            <p className="mt-2">$99.99</p>
+            <p className="mt-2">${product?.data.price}</p>
           </div>
 
           <div className="mt-6">
             <h2 className="text-xl font-semibold">Tags</h2>
             <div className="mt-2 flex flex-wrap gap-2">
-              <span>Pants</span>
+              {product.data.tags.map((item, index) => (
+                <span key={index}>{item}</span>
+              ))}
             </div>
           </div>
 
