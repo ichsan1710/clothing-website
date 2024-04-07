@@ -1,8 +1,36 @@
 import Image from "next/image";
 import logo from "../../../../public/logo.png";
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { ClientFlashComponent } from "@/components/ClientFlash";
 
 export default function Register() {
+  async function registerAction(formData: FormData) {
+    "use server";
+
+    const rawFormData = {
+      name: formData.get("name"),
+      username: formData.get("username"),
+      email: formData.get("email"),
+      password: formData.get("password"),
+    };
+
+    const response = await fetch(`http://localhost:3000/api/register`, {
+      method: "post",
+      cache: "no-store",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(rawFormData),
+    });
+
+    if (!response.ok) {
+      const errorMessage = await response.json();
+      redirect(`/register?error=${errorMessage.message}`);
+    } else {
+      redirect("/login");
+    }
+  }
   return (
     <>
       <div className="flex mx-auto h-screen w-full">
@@ -19,7 +47,12 @@ export default function Register() {
             <h1 className="text-7xl font-bold text-center mb-8">
               JOIN THE COMMUNITY
             </h1>
-            <form className="w-full">
+            <div className="my-5 px-32">
+              <ClientFlashComponent />
+            </div>
+            <form
+              action={registerAction}
+              className="w-full">
               <div className="relative mb-4">
                 <input
                   type="text"
